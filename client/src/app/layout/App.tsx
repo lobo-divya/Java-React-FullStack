@@ -28,7 +28,7 @@ function App() {
     }else{
       setLoading(false);
     }
-  })
+  }, [])
 
   const theme = createTheme({
     palette:{

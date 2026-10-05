@@ -1,7 +1,7 @@
 import { Container, CssBaseline, Box, Avatar, Typography, TextField, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 export default function RegisterPage(){
   const [formData, setFormData] = useState({
@@ -10,11 +10,11 @@ export default function RegisterPage(){
     password: ''
   });
 
-  const handleChange = (e) =>{
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>{
     const {name, value} = e.target;
     setFormData({...formData, [name]: value});
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
   }
@@ -81,7 +81,7 @@ export default function RegisterPage(){
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <Link to="/login">
                     Already have an account? Sign in
                   </Link>
                 </Grid>
